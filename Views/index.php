@@ -89,7 +89,7 @@
         <?php foreach ($data['categorias'] as $categoria) {  ?>
             <div class="col-12 col-md-2 p-5 mt-3">
                 <!-- "md" = numero de columnas -->
-                <a href="#"><img src="<?php echo $categoria['imagen']; ?>" class="rounded-circle img-fluid border"></a>
+                <a href="<?php echo BASE_URL . 'principal/categorias/' . $categoria['id']; ?>"><img src="<?php echo $categoria['imagen']; ?>" class="rounded-circle img-fluid border"></a>
                 <h5 class="text-center mt-3 mb-3">
                     <?php echo $categoria['categoria']; ?>
                     <!-- ['categoria'] = es el nombre de la categoria -->
