@@ -20,9 +20,16 @@ class Principal extends Controller
     }
 
     //Vista shop (Nuestros productos)
-    public function shop()
+    public function shop($page)
     {
+        $pagina = (empty($page)) ? 1 : $page;     /* empty vefica si no existe $page por defecto va ser 1 o de lo contrario va ser la esa pagina*/
+        $porPagina = 5;         /* Cantidiad de productos que se va mostrar */
+        $desde = ($pagina - 1) * $porPagina;
         $data['title'] = 'Nuestros productos';
+        $data['productos'] = $this->model->getProductos($desde, $porPagina);
+        $data['pagina'] = $pagina;
+        $total = $this->model->getTotalProductos();
+        $data['total'] = ceil($total['total'] / $porPagina);
         $this->views->getView('principal', "shop", $data);
     }
 
