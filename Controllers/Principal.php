@@ -29,11 +29,12 @@ class Principal extends Controller
     //Vista datail (Deatalles de los productos)
     public function detail($id_producto)
     {
-        $data['title'] = '--------';
+        $data['producto'] =  $this->model->getProducto($id_producto);         /* LLamar el modelo getProducto */
+        $data['title'] = $data['producto']['nombre'];                       /* Recuperar el nombre del producto en el titulo */
         $this->views->getView('principal', "detail", $data);
     }
 
-    //Vista de la contact (Contactos)
+    //Vista del contact (Contactos)
     public function contact($id_producto)
     {
         $data['title'] = 'Contáctenos';
