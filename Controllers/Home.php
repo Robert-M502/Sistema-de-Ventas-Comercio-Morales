@@ -6,6 +6,8 @@ class Home extends Controller
         parent::__construct();
         session_start();
     }
+
+    //Vista principal (inicio)
     public function index()
     {
         $data['title'] = 'Pagina Principal';
