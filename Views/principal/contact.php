@@ -10,7 +10,7 @@
     </div>
 </div>
 
-<!--  Formulario de contactos -->
+<!--  Formulario de contacto -->
 <div class="container py-5">
     <div class="row py-5">
         <form class="col-md-9 m-auto" method="post" role="form">
@@ -30,7 +30,7 @@
             </div>
             <div class="mb-3">
                 <label for="inputmessage">Mensaje</label>
-                <textarea class="form-control mt-1" id="message" name="message" placeholder="Message" rows="8"></textarea>
+                <textarea class="form-control mt-1" id="message" name="message" placeholder="Mensaje" rows="8"></textarea>
             </div>
             <div class="row">
                 <div class="col text-end mt-2">

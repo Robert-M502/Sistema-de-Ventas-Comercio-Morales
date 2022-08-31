@@ -22,7 +22,7 @@ class Principal extends Controller
     //Vista shop (Nuestros productos)
     public function shop()
     {
-        $data['title'] = 'Nuestos productos';
+        $data['title'] = 'Nuestros productos';
         $this->views->getView('principal', "shop", $data);
     }
 
