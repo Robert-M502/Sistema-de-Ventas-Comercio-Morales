@@ -23,7 +23,7 @@ class Principal extends Controller
     public function shop($page)
     {
         $pagina = (empty($page)) ? 1 : $page;     /* empty vefica si no existe $page por defecto va ser 1 o de lo contrario va ser la esa pagina*/
-        $porPagina = 5;         /* Cantidiad de productos que se va mostrar */
+        $porPagina = 20;         /* Cantidiad de productos que se va mostrar */
         $desde = ($pagina - 1) * $porPagina;
         $data['title'] = 'Nuestros productos';
         $data['productos'] = $this->model->getProductos($desde, $porPagina);
@@ -37,7 +37,9 @@ class Principal extends Controller
     public function detail($id_producto)
     {
         $data['producto'] =  $this->model->getProducto($id_producto);         /* LLamar el modelo getProducto */
-        $data['title'] = $data['producto']['nombre'];                       /* Recuperar el nombre del producto en el titulo */
+        $id_categoria = $data['producto']['id_categoria'];
+        $data['relacionados'] =  $this->model->getAleatorios($id_categoria, $data['producto']['id']);
+        $data['title'] = $data['producto']['nombre'];                     /* Recuperar el nombre del producto en el titulo */
         $this->views->getView('principal', "detail", $data);
     }
 
@@ -58,7 +60,7 @@ class Principal extends Controller
             }
         }
         $pagina = (empty($page)) ? 1 : $page;
-        $porPagina = 2;             //Cantidad de productos que se va a mostrar en la pagian de categorias
+        $porPagina = 20;             //Cantidad de productos que se va a mostrar en la pagian de categorias
         $desde = ($pagina - 1) * $porPagina;
 
         $data['pagina'] = $pagina;
