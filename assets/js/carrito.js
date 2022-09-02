@@ -2,6 +2,9 @@ const btnAddDeseo = document.querySelectorAll(".btnAddDeseo");
 const btnDeseo = document.querySelector("#btnCantidadDeseo"); /* # = indacar que es un id */
 let listaDeseo = [];
 document.addEventListener("DOMContentLoaded", function () {
+    if (localStorage.getItem("listaDeseo") != null) {
+        listaDeseo = JSON.parse(localStorage.getItem("listaDeseo"));
+    }
     cantidadDeseo();
     for (let i = 0; i < btnAddDeseo.length; i++) {
         btnAddDeseo[i].addEventListener("click", function () {
@@ -12,6 +15,18 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 //Se envia el id del producto y la cantidad
 function agregarDeseo(idProducto) {
+    if (localStorage.getItem("listaDeseo") == null) {
+        listaDeseo = [];
+    } else {
+        let listasExiste = JSON.parse(localStorage.getItem("listaDeseo"));
+        for (let i = 0; i < listasExiste.length; i++) {
+            if (listasExiste[i]["idProducto"] == idProducto) {
+                Swal.fire("Aviso", "EL PRODUCTO YA ESTA EN LA LISTA DE DESEO", "warning"); //Alerta
+                return;
+            }
+        }
+        listaDeseo.concat(localStorage.getItem("listaDeseo"));
+    }
     listaDeseo.push({
         idProducto: idProducto,
         cantidad: 1,

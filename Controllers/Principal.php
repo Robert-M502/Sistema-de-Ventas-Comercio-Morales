@@ -23,7 +23,7 @@ class Principal extends Controller
     public function shop($page)
     {
         $pagina = (empty($page)) ? 1 : $page;     /* empty vefica si no existe $page por defecto va ser 1 o de lo contrario va ser la esa pagina*/
-        $porPagina = 20;         /* Cantidiad de productos que se va mostrar */
+        $porPagina = 10;         /* Cantidiad de productos que se va mostrar */
         $desde = ($pagina - 1) * $porPagina;
         $data['title'] = 'Nuestros productos';
         $data['productos'] = $this->model->getProductos($desde, $porPagina);
@@ -78,5 +78,12 @@ class Principal extends Controller
     {
         $data['title'] = 'Contáctenos';
         $this->views->getView('principal', "contact", $data);
+    }
+
+    //Vista lista de deseos
+    public function deseo($id_producto)
+    {
+        $data['title'] = 'Tu lista de deseos';
+        $this->views->getView('principal', "deseo", $data);
     }
 }
