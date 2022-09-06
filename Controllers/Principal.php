@@ -83,7 +83,7 @@ class Principal extends Controller
     //Vista lista de deseos
     public function deseo($id_producto)
     {
-        $data['title'] = 'Tu lista de deseos';
+        $data['title'] = 'Lista de deseos';
         $this->views->getView('principal', "deseo", $data);
     }
 
@@ -92,7 +92,7 @@ class Principal extends Controller
     {
         $datos = file_get_contents('php://input');
         $json = json_decode($datos, true);
-        $array = array();
+        $array['productos'] = array();
         foreach ($json as $producto) {
             $result = $this->model->getListaDeseo($producto['idProducto']); /* El idproducto se recupera desde el json */
             $data['id'] = $result['id'];
@@ -100,8 +100,9 @@ class Principal extends Controller
             $data['precio'] = $result['precio'];
             $data['cantidad'] = $producto['cantidad']; /* La cantidad se recupera desde el json */
             $data['imagen'] = $result['imagen'];
-            array_push($array, $data);
+            array_push($array['productos'], $data);
         }
+        $array['moneda'] = MONEDA;
         echo json_encode($array, JSON_UNESCAPED_UNICODE);
         die();
     }

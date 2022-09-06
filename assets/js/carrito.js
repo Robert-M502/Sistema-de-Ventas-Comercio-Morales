@@ -35,7 +35,7 @@ function agregarDeseo(idProducto) {
     Swal.fire("Aviso", "PRODUCTO AGREGADO A LA LISTA DE DESEOS", "success"); //Alerta
     cantidadDeseo();
 }
-/* Recuperar la cantidad de deseo */
+/* Recuperar y obtiene la cantidad de deseo */
 function cantidadDeseo() {
     let listas = JSON.parse(localStorage.getItem("listaDeseo"));
     if (listas != null) {

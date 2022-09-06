@@ -15,21 +15,54 @@ function getListaDeseo() {
         if (this.readyState == 4 && this.status == 200) {
             const res = JSON.parse(this.responseText);
             let html = ""; /* html se agrega en la constante tablelistas */
-            res.forEach((producto) => {
+            res.productos.forEach((producto) => {
                 html += `<tr>
                     <td>
                         <img class="img-thumbnail rounded-circle" src="${producto.imagen}" alt="" width="100">
                     </td>
                     <td>${producto.nombre}</td>
-                    <td>${producto.precio}</td>
-                    <td>${producto.cantidad}</td>
+                    <td>
+                        <span class="badge bg-warning">${res.moneda + " " + producto.precio}</span>   
+                    </td>
+                    <td>
+                        <span class="badge bg-primary">${producto.cantidad}</span></td>
                     <td> 
-                        <button class="btn btn-danger" type="button"> <i class="fas fa-trash"> </i></button>
-                        <button class="btn btn-info" type="button"> <i class="fas fa-cart-plus"> </i></button>
+                        <button class="btn btn-danger btnEliminarDeseo" type="button" prod="${
+                            producto.id
+                        }"> <i class="fas fa-trash"> </i></button>
+                        <button class="btn btn-primary" type="button"> <i class="fas fa-cart-plus"> </i></button>
                     </td>   
                 </tr>`;
             });
             tableLista.innerHTML = html;
+            btnEliminarDeseo();
         }
     };
+}
+
+/* Recuperar el id del producto  */
+function btnEliminarDeseo() {
+    let listaEliminar = document.querySelectorAll(".btnEliminarDeseo");
+    for (let i = 0; i < listaEliminar.length; i++) {
+        listaEliminar[i].addEventListener("click", function () {
+            let idProducto = listaEliminar[i].getAttribute("prod"); /* Obtener el id del producto */
+            eliminarListaDeseo(idProducto); /* LLamar la funcion para eliminar un producto */
+        });
+    }
+}
+
+/* Eliminar un producto */
+function eliminarListaDeseo(idProducto) {
+    for (let i = 0; i < listaDeseo.length; i++) {
+        if (listaDeseo[i]["idProducto"] == idProducto) {
+            listaDeseo.splice(i, 1);
+        }
+    }
+    localStorage.setItem(
+        "listaDeseo",
+        JSON.stringify(listaDeseo)
+    ); /* Quita en el localStorage los productos eliminaods en la lista de deseos  */
+    getListaDeseo(); /* Actualizar la table  */
+    cantidadDeseo(); /* Actualiza la cantidad de producto cuando se elimina uno o más */
+    Swal.fire("Aviso", "PRODUCTO ELIMINADO DE LA LISTA DE DESEO", "success"); //Alerta
 }
