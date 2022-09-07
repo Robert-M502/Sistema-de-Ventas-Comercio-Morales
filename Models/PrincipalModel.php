@@ -8,6 +8,8 @@ class PrincipalModel extends Query
     }
 
     //Más detalles de un producto seleccionado
+    // ListaCarrito
+    // ListaDeseo
     public function getProducto($id_producto)   //recibe el parametro id_producto
     {
         $sql = "SELECT p.*, c.categoria FROM productos p INNER JOIN categorias c ON p.id_categoria = c.id WHERE p.id = $id_producto";  /* Recuperar el nombre de la categoria */
@@ -47,12 +49,5 @@ class PrincipalModel extends Query
     {
         $sql = "SELECT * FROM productos WHERE id_categoria = $id_categoria AND id !=$id_producto ORDER BY RAND() LIMIT 20";
         return $this->selectAll($sql);
-    }
-
-    //Obtener productos a partir de la lista de deseos
-    public function getListaDeseo($id_producto)
-    {
-        $sql = "SELECT * FROM productos WHERE id = $id_producto";
-        return $this->select($sql);
     }
 }
