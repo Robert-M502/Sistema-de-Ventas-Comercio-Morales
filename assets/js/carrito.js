@@ -68,12 +68,15 @@ function cantidadDeseo() {
 }
 
 /* Agregar productos al carrito */
-function agregarCarrito(idProducto, cantidad) {
+function agregarCarrito(idProducto, cantidad, accion = false) {
     if (localStorage.getItem("listaCarrito") == null) {
         listaCarrito = [];
     } else {
         let listaExiste = JSON.parse(localStorage.getItem("listaCarrito"));
         for (let i = 0; i < listaExiste.length; i++) {
+            if (accion) {
+                eliminarListaDeseo(idProducto);
+            }
             if (listaExiste[i]["idProducto"] == idProducto) {
                 Swal.fire("Aviso", "EL PRODUCTO YA ESTA AGREGADO", "warning"); //Alerta
                 return;
@@ -119,12 +122,39 @@ function getListaCarrito() {
                     <td><span class="badge bg-warning">${res.moneda + " " + producto.precio}</span></td>
                     <td><span class="badge bg-primary">${producto.cantidad}</span></td>
                     <td>${producto.subTotal}</td> 
-                    <td> <button class="btn btn-danger" type="button"><i class="fas fa-times-circle"></i></button></td>    
+                    <td> <button class="btn btn-danger btnDeletecart" type="button" prod="${
+                        producto.id
+                    }"><i class="fas fa-times-circle"></i></button></td>    
                 </tr>`;
             });
             tableListaCarrito.innerHTML = html;
             document.querySelector("#totalGeneral").textContent = res.total;
-            // btnEliminarDeseo();
+            btnEliminarCarritos();
         }
     };
+}
+
+/* Recuperar el id del producto  */
+function btnEliminarCarritos() {
+    let listaEliminar = document.querySelectorAll(".btnDeletecart");
+    for (let i = 0; i < listaEliminar.length; i++) {
+        listaEliminar[i].addEventListener("click", function () {
+            let idProducto = listaEliminar[i].getAttribute("prod"); /* Obtener el id del producto */
+            eliminarListaCarrito(idProducto); /* LLamar la funcion para eliminar un producto */
+        });
+    }
+}
+
+/* Eliminar un producto */
+function eliminarListaCarrito(idProducto) {
+    for (let i = 0; i < listaCarrito.length; i++) {
+        if (listaCarrito[i]["idProducto"] == idProducto) {
+            listaCarrito.splice(i, 1);
+        }
+    }
+    /* Quita en el localStorage los productos eliminaods en la lista de deseos  */
+    localStorage.setItem("listaCarrito", JSON.stringify(listaCarrito));
+    getListaCarrito(); /* Actualizar la table  */
+    cantidadCarrito(); /* Actualiza la cantidad de producto cuando se elimina uno o más */
+    Swal.fire("Aviso", "PRODUCTO ELIMINADO DEL CARRITO", "success"); //Alerta
 }

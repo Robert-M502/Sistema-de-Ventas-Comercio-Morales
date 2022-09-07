@@ -12,21 +12,24 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-body shadow-lg">
-                <table class="table table-borderer table-striped table-hover" id="tableListaDeseo" style="width: 100%;">
-                    <!-- tableListaDeseo = listaDeseo.js -->
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Producto</th>
-                            <th>Precio</th>
-                            <th>Cantidad</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- listaDeseo.js -->
-                    </tbody>
-                </table>
+                <!-- Table-responsive es una clase de boostrap -->
+                <div class="table-responsive">
+                    <table class="table table-borderer table-striped table-hover align-middle" id="tableListaDeseo" style="width: 100%;">
+                        <!-- tableListaDeseo = listaDeseo.js -->
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Producto</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- listaDeseo.js -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
