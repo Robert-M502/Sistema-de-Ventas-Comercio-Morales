@@ -22,7 +22,7 @@
                                     <ul class="list-unstyled">
                                         <li><a class="btn btn-util text-white" href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a class="btn btn-util text-white mt-2" href="<?php echo BASE_URL . 'principal/detail/' . $producto['id']; ?>"><i class="fa fa-eye"></i></a></li>
-                                        <li><a class="btn btn-util text-white mt-2" href="#"><i class="fa fa-cart-plus"></i></a></li>
+                                        <li><a class="btn btn-util text-white mt-2 btnAddcarrito" href="#" prod="<?php echo $producto['id']; ?>"><i class="fa fa-cart-plus"></i></a></li> <!-- btnAddCarrito -> carrito.js  -->
                                     </ul>
                                 </div>
                             </div>

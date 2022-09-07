@@ -60,7 +60,7 @@ class Principal extends Controller
             }
         }
         $pagina = (empty($page)) ? 1 : $page;
-        $porPagina = 20;             //Cantidad de productos que se va a mostrar en la pagian de categorias
+        $porPagina = 5;             //Cantidad de productos que se va a mostrar en la pagian de categorias
         $desde = ($pagina - 1) * $porPagina;
 
         $data['pagina'] = $pagina;
