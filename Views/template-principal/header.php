@@ -84,7 +84,8 @@
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-util text-util text-white" id="btnCantidadDeseo">0</span>
                         <!--btnCantidadDeseo = listaDeseo.js -->
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                    <a class="nav-icon position-relative text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#modalLogin">
+                        <!-- modalLogin -> footer.php -->
                         <i class="fas fa-fw fa-user text-dark mr-3"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-util text-white"></span>
                     </a>

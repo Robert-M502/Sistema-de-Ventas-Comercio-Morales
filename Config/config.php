@@ -9,6 +9,6 @@ const PASS = "";
 const DB = "comercio_morales";
 const CHARSET = "charset=utf8";
 
-const TITLE = "Comercio Morales";
+const TITLE = "E-COMMERCE";
 const MONEDA = "Q";                 //Moneda 
 const CLIENT_ID = "";

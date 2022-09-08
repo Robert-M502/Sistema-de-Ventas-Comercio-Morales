@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cantidadDeseo();
     cantidadCarrito();
 
-    /* Var carrito */
+    /* Ver carrito */
     const myModal = new bootstrap.Modal(document.getElementById("myModal"));
     verCarrito.addEventListener("click", function () {
         getListaCarrito();
@@ -106,7 +106,7 @@ function cantidadCarrito() {
 /* Var carrito */
 function getListaCarrito() {
     /* Ajax */
-    const url = base_url + "principal/listaCarrito"; /* listaDeseo = Metodo en el controlador principal */
+    const url = base_url + "principal/listaProductos"; /* listaDeseo = Metodo en el controlador principal */
     const http = new XMLHttpRequest();
     http.open("POST", url, true);
     http.send(JSON.stringify(listaCarrito));

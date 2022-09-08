@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /* Obtener lista de deseo */
 function getListaDeseo() {
     /* Ajax */
-    const url = base_url + "principal/listaDeseo"; /* listaDeseo = Metodo en el controlador principal */
+    const url = base_url + "principal/listaProductos"; /* listaDeseo = Metodo en el controlador principal */
     const http = new XMLHttpRequest();
     http.open("POST", url, true);
     http.send(JSON.stringify(listaDeseo));
