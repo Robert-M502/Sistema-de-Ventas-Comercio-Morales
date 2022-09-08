@@ -36,10 +36,33 @@ document.addEventListener("DOMContentLoaded", function () {
                 Swal.fire("Aviso", res.msg, res.icono); //Alerta
                 if (res.icono == "success") {
                     setTimeout(() => {
-                        window.location.reload();
-                    }, 3000);
+                        enviarCorreo(correoRegistro.value, res.token);
+                    }, 3000); /* 3000 = 3 segundos */
                 }
             }
         };
     });
 });
+
+function enviarCorreo(correo, token) {
+    let formData = new FormData();
+    formData.append("token", token);
+    formData.append("correo", correo);
+
+    const url = base_url + "clientes/enviarCorreo";
+    const http = new XMLHttpRequest();
+    http.open("POST", url, true);
+    http.send(formData);
+    /* Verificar el estados */
+    http.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            const res = JSON.parse(this.responseText);
+            Swal.fire("Aviso", res.msg, res.icono); //Alerta
+            if (res.icono == "success") {
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000); /* 3000 = 3 segundos */
+            }
+        }
+    };
+}
