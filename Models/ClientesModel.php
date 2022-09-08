@@ -21,4 +21,30 @@ class ClientesModel extends Query
         }
         return $res;
     }
+
+    public function getToken($token)
+    {
+        $sql = "SELECT * FROM clientes WHERE token = '$token'";      //Cosulta sql 
+        return $this->select($sql);         //select = metodo de la clase Query
+    }
+
+    /* Actualizar el token y verify en la base de datos caundo el usuairo ya esta verificado */
+    public function actualizarVerify($id)
+    {
+        $sql = "UPDATE clientes SET token=?, verify=? WHERE id=?";
+        $datos = array(null, 1, $id);
+        $data = $this->save($sql, $datos);
+        if ($data == 1) {
+            $res = $data;
+        } else {
+            $res = 0;
+        }
+        return $res;
+    }
+
+    public function getVerificar($correo)
+    {
+        $sql = "SELECT * FROM clientes WHERE correo = '$correo'";      //Cosulta sql 
+        return $this->select($sql);         //select = metodo de la clase Query
+    }
 }

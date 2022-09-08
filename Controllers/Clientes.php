@@ -17,23 +17,38 @@ class Clientes extends Controller
 
     public function index()
     {
+        if (empty($_SESSION['correo'])) {
+            header('Location: ' . BASE_URL);
+        }
         $data['title'] = 'Tu perfil';
+        $data['verificar'] = $this->model->getVerificar($_SESSION['correo']);
         $this->views->getView('principal', "perfil", $data);
     }
 
     public function registroDirecto() /* login.js */
     {
         if (isset($_POST['nombre']) && isset($_POST['clave'])) {
-            $nombre = $_POST['nombre'];
-            $correo = $_POST['correo'];
-            $clave = $_POST['clave'];
-            $token = md5($correo);
-            $hash = password_hash($clave, PASSWORD_DEFAULT); /* Encriptar la contraseña */
-            $data = $this->model->registroDirecto($nombre, $correo, $hash, $token);
-            if ($data > 0) {
-                $mensaje = array('msg' => 'Registrado con éxito', 'icono' => 'success', 'token' => $token);
+            if (empty($_POST['nombre']) || empty($_POST['correo']) || empty($_POST['clave'])) {
+                $mensaje = array('msg' => 'Todos los campos son requeridos', 'icono' => 'warning');
             } else {
-                $mensaje = array('msg' => 'Error al registrarse', 'icono' => 'error');
+                $nombre = $_POST['nombre'];
+                $correo = $_POST['correo'];
+                $clave = $_POST['clave'];
+                $verificar = $this->model->getVerificar($correo);
+                if (empty($verificar)) {
+                    $token = md5($correo);
+                    $hash = password_hash($clave, PASSWORD_DEFAULT); /* Encriptar la contraseña */
+                    $data = $this->model->registroDirecto($nombre, $correo, $hash, $token);
+                    if ($data > 0) {
+                        $_SESSION['correo'] = $correo;
+                        $_SESSION['nombre'] = $nombre;
+                        $mensaje = array('msg' => 'Registrado con éxito', 'icono' => 'success', 'token' => $token);
+                    } else {
+                        $mensaje = array('msg' => 'Error al registrarse', 'icono' => 'error');
+                    }
+                } else {
+                    $mensaje = array('msg' => 'Ya tienes una cuenta', 'icono' => 'warning');
+                }
             }
             echo json_encode($mensaje, JSON_UNESCAPED_UNICODE);
             die();
@@ -80,9 +95,13 @@ class Clientes extends Controller
         die();
     }
 
-    /*  */
+    /* Verificar el correo a traves del token enviado en el mismo correo */
     public function verificarCorreo($token)
     {
-        print_r($token);
+        $verificar = $this->model->getToken($token);
+        if (!empty($verificar)) {
+            $data = $this->model->actualizarVerify($verificar['id']);
+            header('location: ' . BASE_URL . 'clientes');  /* Dirige  a la vista clientes después de la verificar desde el correo */
+        }
     }
 }
