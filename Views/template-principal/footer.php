@@ -52,36 +52,41 @@
                     <div class="row">
                         <div class="col-md-12" id="frmLogin">
                             <div class="form-group mb-3">
-                                <label for="correoLogin"><i class="fas fa-envelope"></i>Correo</label>
+                                <label for="correoLogin"><i class="fas fa-envelope"></i> Correo</label>
                                 <input id="correoLogin" class="form-control" type="text" name="correoLogin" placeholder="Correo electrónico">
                             </div>
                             <div class="form-group mb-3">
-                                <label for="claveLogin"><i class="fas fa-key"></i>Contraseña</label>
+                                <label for="claveLogin"><i class="fas fa-key"></i> Contraseña</label>
                                 <input id="claveLogin" class="form-control" type="text" name="claveLogin" placeholder="Contraseña">
+                            </div>
+                            <a href="#" id="btnRegister">¿Todavía no tienes una cuenta?</a> <!-- btnRegister -> login.js -->
+                            <div class="float-end">
+                                <button class="btn btn-primary btn-lg" type="button">Login</button>
                             </div>
                         </div>
                         <!-- Formulario de registro -->
-                        <div class="col-md-12 d-none">
+                        <div class="col-md-12 d-none" id="frmRegister">
                             <div class="form-group mb-3">
-                                <label for="nombreRegistro"><i class="fas fa-list"></i>Nombre</label>
-                                <input id="nombreRegistro" class="form-control" type="text" name="nombreRegistro" placeholder="Correo electrónico">
+                                <label for="nombreRegistro"><i class="fas fa-list"></i> Nombre</label>
+                                <input id="nombreRegistro" class="form-control" type="text" name="nombreRegistro" placeholder="Nombre completo">
                             </div>
                             <div class="form-group mb-3">
-                                <label for="correoRegistro"><i class="fas fa-key"></i>Contraseña</label>
-                                <input id="correoRegistro" class="form-control" type="text" name="correoRegistro" placeholder="Contraseña">
+                                <label for="correoRegistro"><i class="fas fa-envelope"></i> Correo</label>
+                                <input id="correoRegistro" class="form-control" type="text" name="correoRegistro" placeholder="Correo electrónico">
                             </div>
                             <div class="form-group mb-3">
-                                <label for="claveRegistro"><i class="fas fa-key"></i>Contraseña</label>
+                                <label for="claveRegistro"><i class="fas fa-key"></i> Contraseña</label>
                                 <input id="claveRegistro" class="form-control" type="text" name="claveRegistro" placeholder="Contraseña">
+                            </div>
+                            <a href="#" id="btnLogin">¿Ya tienes una cuenta?</a> <!-- btnRegister -> login.js -->
+                            <div class="float-end">
+                                <button class="btn btn-primary btn-lg" type="button" id="registrarse"> Registrarse</button>
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" type="button">Login</button>
-                <button class="btn btn-danger" type="button">Registrarse</button>
-            </div>
+
         </div>
     </div>
 </div>
@@ -176,3 +181,4 @@
     const base_url = '<?php echo BASE_URL; ?>'; //Constante para la funcion getListaDeseo en listaDeseo
 </script>
 <script src="<?php echo BASE_URL; ?>assets/js/carrito.js"></script>
+<script src="<?php echo BASE_URL; ?>assets/js/login.js"></script>
