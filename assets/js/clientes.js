@@ -1,6 +1,8 @@
 const tableLista = document.querySelector("#tableListaProductos tbody"); /* querySelector se obtiene el id de la tabla */
 document.addEventListener("DOMContentLoaded", function () {
-    getListaProductos();
+    if (tableLista) {
+        getListaProductos();
+    }
 });
 
 function getListaProductos() {
