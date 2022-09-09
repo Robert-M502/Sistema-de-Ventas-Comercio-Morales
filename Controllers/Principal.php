@@ -106,6 +106,9 @@ class Principal extends Controller
             $total += $subTotal;
         }
         $array['total'] = number_format($total, 2);
+        $modenaGT = 7.74;
+        $TotalUSD = $total / $modenaGT;
+        $array['totalPaypal'] = number_format($TotalUSD, 2, '.', ''); /* Total a pagar que recibe paypal */
         $array['moneda'] = MONEDA;
         echo json_encode($array, JSON_UNESCAPED_UNICODE);
         die();

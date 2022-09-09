@@ -11,7 +11,7 @@ const CHARSET = "charset=utf8";
 
 const TITLE = "COMERCIO MORALES"; /* Nombre del e-commerce */
 const MONEDA = "Q";                 /* Moneda */
-const CLIENT_ID = "";
+const CLIENT_ID = "AeP12OSQ297nQMNmfxdmMow2BH7u-__dS6PGF1iVAEFg1M_qYIoTvKZxMRqXzXMejuoSoEX6cHbyfwpG"; /* Paypal/My Apps & Credentials */
 
 /* Constantes para para el metodo enviarCorreo */
 const USER_SMTP = "rsebastianm1999@gmail.com";
