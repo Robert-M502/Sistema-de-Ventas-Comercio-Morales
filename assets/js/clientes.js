@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function getListaProductos() {
     /* Ajax */
-    const url = base_url + "principal/listaProductos"; /* listaDeseo = Metodo en el controlador principal */
+    const url = base_url + "principal/listaProductos"; /* listaProductos = Metodo en el controlador principal */
     const http = new XMLHttpRequest();
     http.open("POST", url, true);
     http.send(JSON.stringify(listaCarrito));
@@ -53,16 +53,24 @@ function botonPaypal(total) {
             // Finalize the transaction after payer approval
             onApprove: (data, actions) => {
                 return actions.order.capture().then(function (orderData) {
-                    // Successful capture! For dev/demo purposes:
-                    console.log("Capture result", orderData, JSON.stringify(orderData, null, 2));
-                    const transaction = orderData.purchase_units[0].payments.captures[0];
-                    alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
-                    // When ready to go live, remove the alert and show a success message within this page. For example:
-                    // const element = document.getElementById('paypal-button-container');
-                    // element.innerHTML = '<h3>Thank you for your payment!</h3>';
-                    // Or go to another URL:  actions.redirect('thank_you.html');
+                    registrarPedido(orderData);
                 });
             },
         })
         .render("#paypal-button-container");
+}
+
+/* Registrar pedidos */
+function registrarPedido(datos) {
+    const url = base_url + "clientes/registrarPedido";
+    const http = new XMLHttpRequest();
+    http.open("POST", url, true);
+    http.send(JSON.stringify(datos));
+    /* Verificar el estados */
+    http.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            // const res = JSON.parse(this.responseText);
+        }
+    };
 }

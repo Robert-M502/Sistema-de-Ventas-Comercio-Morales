@@ -47,4 +47,50 @@ class ClientesModel extends Query
         $sql = "SELECT * FROM clientes WHERE correo = '$correo'";      //Cosulta sql 
         return $this->select($sql);         //select = metodo de la clase Query
     }
+
+    /* Registrar pedidos */
+    public function registrarPedido(
+        $id_transaccion,
+        $monto,
+        $estado,
+        $fecha,
+        $email,
+        $nombre,
+        $apellido,
+        $direccion,
+        $ciudad,
+        $email_user
+    ) {
+        $sql = "INSERT  INTO pedidos (
+        id_transaccion,
+        monto,
+        estado,
+        fecha,
+        email,
+        nombre,
+        apellido,
+        direccion,
+        ciudad,
+        email_user) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        $datos = array(
+            $id_transaccion,
+            $monto,
+            $estado,
+            $fecha,
+            $email,
+            $nombre,
+            $apellido,
+            $direccion,
+            $ciudad,
+            $email_user
+        );
+        $data = $this->insertar($sql, $datos);
+        /* Verificar si devuelve el id */
+        if ($data > 0) {
+            $res = $data;
+        } else {
+            $res = 0;
+        }
+        return $res;
+    }
 }
