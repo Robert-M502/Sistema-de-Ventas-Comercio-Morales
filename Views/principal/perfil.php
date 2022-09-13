@@ -22,6 +22,7 @@
                                 </thead>
                                 <tbody>
                                     <!-- carrito.js -->
+                                    <!-- Carrito vacio/cliente.js    -->
                                 </tbody>
                             </table>
                         </div>

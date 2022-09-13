@@ -93,17 +93,19 @@ class Principal extends Controller
         $json = json_decode($datos, true);
         $array['productos'] = array();
         $total = 0.00;
-        foreach ($json as $producto) {
-            $result = $this->model->getProducto($producto['idProducto']); /* El idproducto se recupera desde el json */
-            $data['id'] = $result['id'];
-            $data['nombre'] = $result['nombre'];
-            $data['precio'] = $result['precio'];
-            $data['cantidad'] = $producto['cantidad']; /* La cantidad se recupera desde el json */
-            $data['imagen'] = $result['imagen'];
-            $subTotal = $result['precio'] * $producto['cantidad'];
-            $data['subTotal'] = number_format($subTotal, 2);
-            array_push($array['productos'], $data);
-            $total += $subTotal;
+        if (!empty($json)) {
+            foreach ($json as $producto) {
+                $result = $this->model->getProducto($producto['idProducto']); /* El idproducto se recupera desde el json */
+                $data['id'] = $result['id'];
+                $data['nombre'] = $result['nombre'];
+                $data['precio'] = $result['precio'];
+                $data['cantidad'] = $producto['cantidad']; /* La cantidad se recupera desde el json */
+                $data['imagen'] = $result['imagen'];
+                $subTotal = $result['precio'] * $producto['cantidad'];
+                $data['subTotal'] = number_format($subTotal, 2);
+                array_push($array['productos'], $data);
+                $total += $subTotal;
+            }
         }
         $array['total'] = number_format($total, 2);
         $modenaGT = 7.74;

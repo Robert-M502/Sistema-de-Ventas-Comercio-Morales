@@ -49,41 +49,31 @@ class ClientesModel extends Query
     }
 
     /* Registrar pedidos */
-    public function registrarPedido(
-        $id_transaccion,
-        $monto,
-        $estado,
-        $fecha,
-        $email,
-        $nombre,
-        $apellido,
-        $direccion,
-        $ciudad,
-        $email_user
-    ) {
-        $sql = "INSERT  INTO pedidos (
-        id_transaccion,
-        monto,
-        estado,
-        fecha,
-        email,
-        nombre,
-        apellido,
-        direccion,
-        ciudad,
-        email_user) VALUES (?,?,?,?,?,?,?,?,?,?)";
-        $datos = array(
-            $id_transaccion,
-            $monto,
-            $estado,
-            $fecha,
-            $email,
-            $nombre,
-            $apellido,
-            $direccion,
-            $ciudad,
-            $email_user
-        );
+    public function registrarPedido($id_transaccion, $monto, $estado, $fecha, $email, $nombre, $apellido, $direccion, $ciudad, $email_user)
+    {
+        $sql = "INSERT  INTO pedidos (id_transaccion, monto, estado, fecha, email, nombre, apellido, direccion, ciudad, email_user) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        $datos = array($id_transaccion, $monto, $estado, $fecha, $email, $nombre, $apellido, $direccion, $ciudad, $email_user);
+        $data = $this->insertar($sql, $datos);
+        /* Verificar si devuelve el id */
+        if ($data > 0) {
+            $res = $data;
+        } else {
+            $res = 0;
+        }
+        return $res;
+    }
+
+    public function getProducto($id_producto)   //recibe el parametro id_producto
+    {
+        $sql = "SELECT * FROM productos WHERE id = $id_producto";
+        return $this->select($sql);
+    }
+
+    /* Registrar detalle de pedidos */
+    public function registrarDetalle($producto, $precio, $cantidad, $id_pedido)
+    {
+        $sql = "INSERT  INTO detalle_pedidos (producto, precio, cantidad, id_pedido) VALUES (?,?,?,?)";
+        $datos = array($producto, $precio, $cantidad, $id_pedido);
         $data = $this->insertar($sql, $datos);
         /* Verificar si devuelve el id */
         if ($data > 0) {
