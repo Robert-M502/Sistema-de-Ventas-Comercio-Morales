@@ -170,4 +170,11 @@ class Clientes extends Controller
         echo json_encode($mensaje);
         die();
     }
+
+    /* Listra productos pendientes */
+    public function listarPendientes()
+    {
+        $data = $this->model->getPedidos(1); /* Esta pendiente va ser un 1 */
+        echo json_encode($data);
+    }
 }
