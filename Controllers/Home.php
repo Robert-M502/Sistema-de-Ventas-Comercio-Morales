@@ -10,6 +10,7 @@ class Home extends Controller
     //Vista principal (inicio)
     public function index()
     {
+        $data['perfil'] = 'no';
         $data['title'] = 'Pagina Principal';
         $data['categorias'] = $this->model->getCategorias();  //Categorias
         $data['nuevoProductos'] = $this->model->getNuevosProductos();  //Productos

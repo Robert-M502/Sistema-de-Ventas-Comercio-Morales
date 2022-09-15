@@ -46,6 +46,14 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card shadow-lg">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle float-end" href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="<?php echo BASE_URL . 'clientes/salir'; ?>"><i class="fas fa-times-circle"></i> Cerrar sesión</a></li>
+                                </ul>
+                            </div>
                             <div class="card-body text-center">
                                 <img class="img-thumbnail rounded-circle" src="<?php echo  BASE_URL . 'assets/img/logo.png' ?>" alt="" width="150">
                                 <hr>

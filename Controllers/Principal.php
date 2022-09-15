@@ -7,14 +7,10 @@ class Principal extends Controller
         session_start();
     }
 
-    //Vista principal (inicio)
-    public function index()
-    {
-    }
-
     //Vista about (Sobre Nosotros)
     public function about()
     {
+        $data['perfil'] = 'no';
         $data['title'] = 'Sobre nosotras';
         $this->views->getView('principal', "about", $data);
     }
@@ -22,6 +18,7 @@ class Principal extends Controller
     //Vista shop (Nuestros productos)
     public function shop($page)
     {
+        $data['perfil'] = 'no';
         $pagina = (empty($page)) ? 1 : $page;     /* empty vefica si no existe $page por defecto va ser 1 o de lo contrario va ser la esa pagina*/
         $porPagina = 10;         /* Cantidiad de productos que se va mostrar */
         $desde = ($pagina - 1) * $porPagina;
@@ -36,6 +33,7 @@ class Principal extends Controller
     //Vista datail (Deatalles de los productos)
     public function detail($id_producto)
     {
+        $data['perfil'] = 'no';
         $data['producto'] =  $this->model->getProducto($id_producto);         /* LLamar el modelo getProducto */
         $id_categoria = $data['producto']['id_categoria'];
         $data['relacionados'] =  $this->model->getAleatorios($id_categoria, $data['producto']['id']);
@@ -46,6 +44,7 @@ class Principal extends Controller
     //Vista categorias
     public function categorias($datos)
     {
+        $data['perfil'] = 'no';
         $id_categoria = 1;
         $page = 1;
         $array = explode(',', $datos);
@@ -76,6 +75,7 @@ class Principal extends Controller
     //Vista del contact (Contactos)
     public function contact($id_producto)
     {
+        $data['perfil'] = 'no';
         $data['title'] = 'Contáctenos';
         $this->views->getView('principal', "contact", $data);
     }
@@ -83,6 +83,7 @@ class Principal extends Controller
     //Vista lista de deseos
     public function deseo($id_producto)
     {
+        $data['perfil'] = 'no';
         $data['title'] = 'Lista de deseos';
         $this->views->getView('principal', "deseo", $data);
     }
