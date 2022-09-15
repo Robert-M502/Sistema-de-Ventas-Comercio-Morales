@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
             dataSrc: "",
         },
         columns: [{ data: "id_transaccion" }, { data: "monto" }, { data: "fecha" }],
+        language /* Variable/es-ES.js */,
+        dom /* Variable/es-ES.js */,
+        buttons /* Variable/es-ES.js */,
     });
 });
 
