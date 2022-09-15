@@ -4,6 +4,8 @@ const btnDeseo = document.querySelector("#btnCantidadDeseo"); /* # = indaca que 
 const btnCarrito = document.querySelector("#btnCantidadCarrito"); /* # = indaca que es un id */
 const verCarrito = document.querySelector("#verCarrito");
 const tableListaCarrito = document.querySelector("#tableListaCarrito tbody"); /* Solo accedemos al tbody */
+
+/* Ver carrito */
 const myModal = new bootstrap.Modal(document.getElementById("myModal"));
 
 let listaDeseo, listaCarrito;
