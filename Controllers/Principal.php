@@ -116,4 +116,12 @@ class Principal extends Controller
         echo json_encode($array, JSON_UNESCAPED_UNICODE);
         die();
     }
+
+    /* Busqueda productos */
+    public function busqueda($valor) /* Requerido en login.js */
+    {
+        $data = $this->model->getBusqueda($valor);
+        echo json_encode($data, JSON_UNESCAPED_UNICODE);
+        die();
+    }
 }
