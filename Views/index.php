@@ -1,4 +1,4 @@
-<?php require_once 'Views/template-principal/header.php'; ?>
+<?php require_once 'Views/template/header-principal.php'; ?>
 
 <!-- Anuncios principales -->
 <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
@@ -142,4 +142,4 @@
     </div>
 </section>
 
-<?php require_once 'Views/template-principal/footer.php'; ?>
+<?php require_once 'Views/template/footer-principal.php'; ?>
