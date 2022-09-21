@@ -36,17 +36,17 @@
                                         <h5 class="card-title text-center pb-0 fs-4">Acceso</h5>
                                         <p class="text-center small">Ingrese el nombre de usuario y la contraseña de acceso al sistema</p>
                                     </div>
-                                    <form class="row g-3 needs-validation" novalidate>
+                                    <form class="row g-3 needs-validation" id="formulario" novalidate>
                                         <div class="col-12">
-                                            <label for="yourUsername" class="form-label">Usuario</label>
+                                            <label for="email" class="form-label">Usuario</label>
                                             <div class="input-group has-validation">
-                                                <input type="text" name="username" class="form-control" id="yourUsername" required>
-                                                <div class="invalid-feedback">Por favor, introduzca el nombre de usuario.</div>
+                                                <input type="email" name="email" class="form-control" id="email" value="rsebastianm1999@gmail.com" required>
+                                                <div class="invalid-feedback">Por favor, introduzca el correo electrónico.</div>
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <label for="yourPassword" class="form-label">Contraseña</label>
-                                            <input type="password" name="password" class="form-control" id="yourPassword" required>
+                                            <label for="clave" class="form-label">Contraseña</label>
+                                            <input type="password" name="clave" class="form-control" id="clave" value="admin" required>
                                             <div class="invalid-feedback">¡Por favor, introduzca la contraseña!</div>
                                         </div>
                                         <div class="col-12">
@@ -75,6 +75,7 @@
     <script>
         const base_url = '<?php echo BASE_URL; ?>';
     </script>
+    <script src="<?php echo BASE_URL; ?>assets/js/sweetalert2.all.min.js"></script>
     <script src="<?php echo BASE_URL; ?>assets/js/modulos/login.js"></script>
 </body>
 
