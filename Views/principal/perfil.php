@@ -184,7 +184,6 @@
 <?php require_once 'Views/template/footer-principal.php'; ?>
 
 <script src="<?php echo BASE_URL; ?>assets/js/es-ES.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL . 'assets/DataTables/datatables.min.css'; ?>">
 <script type="text/javascript" src="<?php echo BASE_URL . 'assets/DataTables/datatables.min.js'; ?>"></script>
 
 <script src="<?php echo BASE_URL . 'assets/js/clientes.js'; ?>"></script>

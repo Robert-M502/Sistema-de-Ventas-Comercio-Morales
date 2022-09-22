@@ -17,6 +17,9 @@
     <link href="<?php echo BASE_URL; ?>assets/css/remixicon.css" rel="stylesheet">
     <link href="<?php echo BASE_URL; ?>assets/css/simple-datatables.css" rel="stylesheet">
     <link href="<?php echo BASE_URL; ?>assets/css/style.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL . 'assets/DataTables/datatables.min.css'; ?>">
+
 </head>
 
 <body>

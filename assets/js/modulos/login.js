@@ -36,5 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function alertas(msg, icono) {
-    Swal.fire("Aviso", msg, icono); //Alerta
+    // Swal.fire("Aviso", msg, icono); //Alerta
+    Swal.fire("Aviso", msg.toUpperCase(), icono); //Alerta
 }
