@@ -7,9 +7,9 @@ class UsuariosModel extends Query
         parent::__construct();
     }
 
-    public function getUsuarios()
+    public function getUsuarios($estado)
     {
-        $sql = "SELECT id, nombres, apellidos, correo, perfil FROM usuarios";
+        $sql = "SELECT id, nombres, apellidos, correo, perfil FROM usuarios WHERE  estado = $estado";
         return $this->selectAll($sql);
     }
 
@@ -18,5 +18,18 @@ class UsuariosModel extends Query
         $sql = "INSERT INTO usuarios (nombres, apellidos, correo, clave) VALUES (?,?,?,?)";
         $array = array($nombre, $apellido, $correo, $clave);
         return $this->insertar($sql, $array);
+    }
+
+    public function verficarCorreo($correo)
+    {
+        $sql = "SELECT correo FROM usuarios WHERE correo = '$correo'";
+        return $this->select($sql);
+    }
+
+    public function eliminar($idUser)
+    {
+        $sql = "UPDATE usuarios SET estado = ? WHERE id = ?"; /* Cambiar el estado del registro */
+        $array = array(0, $idUser); /* El estado va ser igual a 0 */
+        return $this->save($sql, $array);
     }
 }
