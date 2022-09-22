@@ -51,6 +51,7 @@
             </div>
             <form id="frmRegistro">
                 <div class="modal-body">
+                    <input type="hidden" id="id" name="id">
                     <div class="form-group mb-2">
                         <label for="nombre">Nombres</label>
                         <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombres">
@@ -61,15 +62,15 @@
                     </div>
                     <div class="form-group mb-2">
                         <label for="correo">Correo</label>
-                        <input type="email" name="correo" id="" class="form-control" placeholder="Correo electrónico">
+                        <input type="email" name="correo" id="correo" class="form-control" placeholder="Correo electrónico">
                     </div>
                     <div class="form-group mb-2">
                         <label for="clave">Contraseña</label>
-                        <input type="current-password" name="clave" id="clave" class="form-control" placeholder="Contraseña">
+                        <input type="password" name="clave" id="clave" class="form-control" placeholder="Contraseña">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Registrar</button>
+                    <button type="submit" class="btn btn-primary" id="btnAccion">Registrar</button>
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                 </div>
             </form>

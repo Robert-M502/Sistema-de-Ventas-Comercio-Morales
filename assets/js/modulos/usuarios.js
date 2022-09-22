@@ -1,6 +1,7 @@
 /* Usuarios en la panel administrativo */
 const nuevo = document.querySelector("#nuevo_registro");
 const frm = document.querySelector("#frmRegistro");
+const btnAccion = document.querySelector("#btnAccion");
 const titleModal = document.querySelector("#titleModal");
 let tblUsuarios;
 
@@ -20,7 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     /* Levantar modal */
     nuevo.addEventListener("click", function () {
+        document.querySelector("#id").value = "";
         titleModal.textContent = "Nuevo usuario";
+        titleModal.textContent = "Registrar";
+        frm.reset();
+        document.querySelector("#clave").removeAttribute("readonly");
         myModal.show();
     });
 
@@ -84,4 +89,27 @@ function eliminarUser(idUser) {
             };
         }
     });
+}
+
+/* Editar usuario */
+function editUser(idUser) {
+    const url = base_url + "usuarios/edit/" + idUser; /* controlador/metodo/parametro */
+    const http = new XMLHttpRequest();
+    http.open("GET", url, true);
+    http.send();
+    /* Verificar el estados */
+    http.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText); /* Muestra claramente si hay error en el contraldor, modelo u otros archivos en la consola o en la red */
+            const res = JSON.parse(this.responseText);
+            document.querySelector("#id").value = res.id;
+            document.querySelector("#nombre").value = res.nombres;
+            document.querySelector("#apellido").value = res.apellidos;
+            document.querySelector("#correo").value = res.correo;
+            document.querySelector("#clave").setAttribute("readonly", "readonly");
+            titleModal.textContent = "Modificar usuario";
+            btnAccion.textContent = "Actualizar"; /* Registrar cambiar a Actulizar */
+            myModal.show();
+        }
+    };
 }
