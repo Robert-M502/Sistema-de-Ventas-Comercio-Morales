@@ -3,38 +3,39 @@ const nuevo = document.querySelector("#nuevo_registro");
 const frm = document.querySelector("#frmRegistro");
 const btnAccion = document.querySelector("#btnAccion");
 const titleModal = document.querySelector("#titleModal");
-let tblUsuarios;
+let tblCategorias;
 
 const myModal = new bootstrap.Modal(document.getElementById("nuevoModal"));
 
 document.addEventListener("DOMContentLoaded", function () {
     /* Cargar datos pendientes con DataTables */
-    tblUsuarios = $("#tablUsuarios").DataTable({
+    tblCategorias = $("#tblCategorias").DataTable({
         ajax: {
-            url: base_url + "usuarios/listar",
+            url: base_url + "categorias/listar",
             dataSrc: "",
         },
-        columns: [{ data: "id" }, { data: "nombres" }, { data: "apellidos" }, { data: "correo" }, { data: "perfil" }, { data: "accion" }],
+        columns: [{ data: "id" }, { data: "categoria" }, { data: "imagen" }, { data: "accion" }],
         language /* Variable/es-ES.js */,
         dom /* Variable/es-ES.js */,
         buttons /* Variable/es-ES.js */,
     });
     /* Levantar modal */
     nuevo.addEventListener("click", function () {
-        document.querySelector("#id").value = "";
-        titleModal.textContent = "Nuevo usuario";
+        document.querySelector("#id").value = ""; /* Limpia el campo */
+        document.querySelector("#imagen").value = ""; /* Limpia el campo */
+        document.querySelector("#imagen_actual").value = ""; /* Limpia el campo */
+        titleModal.textContent = "Nueva categoria";
         btnAccion.textContent = "Registrar";
         frm.reset();
-        document.querySelector("#clave").removeAttribute("readonly");
         myModal.show();
     });
 
-    /* Submit usuarios */
+    /* Submit categorias */
     frm.addEventListener("submit", function (e) {
         e.preventDefault(); /* Previene la recarga */
         let data = new FormData(this);
         /* Ajax */
-        const url = base_url + "usuarios/registrar"; /* controlador/metodo */
+        const url = base_url + "categorias/registrar"; /* controlador/metodo */
         const http = new XMLHttpRequest();
         http.open("POST", url, true);
         http.send(data);
@@ -49,7 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     /* Ocultar modal */
                     myModal.hide();
                     /* Recarga la tabla con ajax */
-                    tblUsuarios.ajax.reload();
+                    tblCategorias.ajax.reload();
+                    document.querySelector("#imagen").value = ""; /* Limpia el campo */
                 }
                 Swal.fire("Aviso", res.msg, res.icono); //Alerta
             }
@@ -57,8 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-/* Eliminar usuario */
-function eliminarUser(idUser) {
+/* Eliminar categoria */
+function eliminarCat(idCat) {
     Swal.fire({
         title: "Aviso",
         text: "Estas seguro de eliminar el registro!",
@@ -69,7 +71,7 @@ function eliminarUser(idUser) {
         confirmButtonText: "Si, Eliminar!",
     }).then((result) => {
         if (result.isConfirmed) {
-            const url = base_url + "usuarios/delete/" + idUser; /* controlador/metodo/parametro */
+            const url = base_url + "categorias/delete/" + idCat; /* controlador/metodo/parametro */
             const http = new XMLHttpRequest();
             http.open("GET", url, true);
             http.send();
@@ -82,7 +84,7 @@ function eliminarUser(idUser) {
                     const res = JSON.parse(this.responseText);
                     if (res.icono == "success") {
                         /* Recarga la tabla con ajax */
-                        tblUsuarios.ajax.reload();
+                        tblCategorias.ajax.reload();
                     }
                     Swal.fire("Aviso", res.msg, res.icono); //Alerta
                 }
@@ -91,9 +93,9 @@ function eliminarUser(idUser) {
     });
 }
 
-/* Editar usuario */
-function editUser(idUser) {
-    const url = base_url + "usuarios/edit/" + idUser; /* controlador/metodo/parametro */
+/* Editar categoria */
+function editCat(idCat) {
+    const url = base_url + "categorias/edit/" + idCat; /* controlador/metodo/parametro */
     const http = new XMLHttpRequest();
     http.open("GET", url, true);
     http.send();
@@ -103,12 +105,10 @@ function editUser(idUser) {
             console.log(this.responseText); /* Muestra claramente si hay error en el contraldor, modelo u otros archivos en la consola o en la red */
             const res = JSON.parse(this.responseText);
             document.querySelector("#id").value = res.id;
-            document.querySelector("#nombre").value = res.nombres;
-            document.querySelector("#apellido").value = res.apellidos;
-            document.querySelector("#correo").value = res.correo;
-            document.querySelector("#clave").setAttribute("readonly", "readonly");
-            titleModal.textContent = "Modificar usuario";
+            document.querySelector("#categoria").value = res.categoria;
+            document.querySelector("#imagen_actual").value = res.imagen;
             btnAccion.textContent = "Actualizar"; /* Registrar cambiar a Actulizar */
+            titleModal.textContent = "Modificar Categoria";
             myModal.show();
         }
     };

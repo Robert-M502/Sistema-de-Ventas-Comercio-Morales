@@ -41,7 +41,7 @@ class Usuarios extends Controller
             if (empty($_POST['nombre']) || empty($_POST['apellido'])) {
                 $respuesta = array('msg' => 'Todos los campos son requeridos', 'icono'  => 'warning');
             } else {
-                /* Si no existe el id se registra el usario */
+                /* Si no existe el id se registra el usuario */
                 if (empty($id)) {
                     $result = $this->model->verficarCorreo($correo);
                     /* Verificar si el correo ya esta registrado */

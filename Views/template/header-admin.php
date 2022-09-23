@@ -168,5 +168,6 @@
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item"> <a class="nav-link " href="<?php echo BASE_URL  . 'admin/home'; ?>"> <i class="bi bi-grid"></i> <span>Dashboard</span> </a></li>
             <li class="nav-item"> <a class="nav-link collapsed" href="<?php echo BASE_URL  . 'usuarios'; ?>"> <i class="bi bi-person"></i> <span>Usuarios</span> </a></li>
+            <li class="nav-item"> <a class="nav-link collapsed" href="<?php echo BASE_URL  . 'categorias'; ?>"> <i class="bi bi-tags"></i> <span>Categorias</span> </a></li>
         </ul>
     </aside>
