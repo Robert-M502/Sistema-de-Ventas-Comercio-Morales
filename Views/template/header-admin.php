@@ -56,5 +56,6 @@
             <li class="nav-item"> <a class="nav-link collapsed" href="<?php echo BASE_URL  . 'usuarios'; ?>"> <i class="bi bi-person"></i> <span>Usuarios</span> </a></li>
             <li class="nav-item"> <a class="nav-link collapsed" href="<?php echo BASE_URL  . 'categorias'; ?>"> <i class="bi bi-tags"></i> <span>Categorias</span> </a></li>
             <li class="nav-item"> <a class="nav-link collapsed" href="<?php echo BASE_URL  . 'productos'; ?>"> <i class="bi bi-list"></i> <span>Producto</span> </a></li>
+            <li class="nav-item"> <a class="nav-link collapsed" href="<?php echo BASE_URL  . 'pedidos'; ?>"> <i class="bi bi-bell"></i> <span>Pedidos</span> </a></li>
         </ul>
     </aside>
