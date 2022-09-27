@@ -21,7 +21,7 @@ class Categorias extends Controller
         for ($i = 0; $i < count($data); $i++) {
             $data[$i]['imagen'] = ' <img class="img-thumbnail" src="' . BASE_URL . $data[$i]['imagen'] . '" alt="' . $data[$i]['categoria'] . '" width="50">';
             $data[$i]['accion'] = ' <div class="d-flex">
-                <button type="button" class="btn btn-primary" onclick="editCat(' . $data[$i]['id'] . ')"><i class="fas fa-edit"></i></button>
+                <button type="button" class="btn btn-primary" onclick="editCat(' . $data[$i]['id'] . ')"><i class="fas fa-edit"></i></button> &nbsp 
                 <button type="button" class="btn btn-danger" onclick="eliminarCat(' . $data[$i]['id'] . ')"><i class="fas fa-trash"></i></button>
             </div>';
         }
