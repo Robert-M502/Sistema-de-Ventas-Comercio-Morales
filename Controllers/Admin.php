@@ -44,6 +44,10 @@ class Admin extends Controller
     public function home()
     {
         $data['title'] = 'Panel Administrativo';
+        $data['pendientes'] = $this->model->getTotales(1); /* Estado pendiente */
+        $data['procesos'] = $this->model->getTotales(2); /* Estado en proceso */
+        $data['finalizados'] = $this->model->getTotales(3); /* Estado finalizado */
+        $data['productos'] = $this->model->getProductos();
         $this->views->getView('admin/administracion', "index", $data);
     }
 
