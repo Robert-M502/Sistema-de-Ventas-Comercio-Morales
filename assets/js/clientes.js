@@ -1,5 +1,8 @@
 const tableLista = document.querySelector("#tableListaProductos tbody"); /* querySelector se obtiene el id de la tabla */
 const tblPendientes = document.querySelector("#tblPendientes");
+const estadoEnviado = document.querySelector("#estadoEnviado");
+const estadoProceso = document.querySelector("#estadoProceso");
+const estadoCompletado = document.querySelector("#estadoCompletado");
 
 document.addEventListener("DOMContentLoaded", function () {
     if (tableLista) {
@@ -109,6 +112,11 @@ function registrarPedido(datos) {
 }
 
 function verPedido(idPedido) {
+    /* Quitar las clases de cada elemento */
+    estadoEnviado.classList.remove("services-icon-wap");
+    estadoProceso.classList.remove("services-icon-wap");
+    estadoCompletado.classList.remove("services-icon-wap");
+
     const mPedido = new bootstrap.Modal(document.getElementById("modalPedido"));
     /* Ajax */
     const url = base_url + "clientes/verPedido/" + idPedido; /* verPedido = Metodo en el controlador clientes */
@@ -121,6 +129,16 @@ function verPedido(idPedido) {
             console.log(this.responseText);
             const res = JSON.parse(this.responseText);
             let html = "";
+
+            /* Validación de las clases segun su estado */
+            if (res.pedido.proceso == 1) {
+                estadoEnviado.classList.add("services-icon-wap");
+            } else if (res.pedido.proceso == 2) {
+                estadoProceso.classList.add("services-icon-wap");
+            } else {
+                estadoCompletado.classList.add("services-icon-wap");
+            }
+
             /* Recore la respuesta */
             res.productos.forEach((row) => {
                 let subTotal = parseFloat(row.precio) * parseInt(row.cantidad);

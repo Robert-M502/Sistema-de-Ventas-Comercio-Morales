@@ -1,4 +1,4 @@
-<?php require_once 'Views/template-principal/header.php'; ?>
+<?php require_once 'Views/template/header-principal.php'; ?>
 
 <div class="container py-5">
     <div class="alert alert-success d-flex align-items-center" role="alert">
@@ -35,5 +35,6 @@
     </div>
 </div>
 
-<?php require_once 'Views/template-principal/footer.php'; ?>
+<?php require_once 'Views/template/footer-principal.php'; ?>
+
 <script src="<?php echo BASE_URL . 'assets/js/modulos/listaDeseo.js' ?>"></script>

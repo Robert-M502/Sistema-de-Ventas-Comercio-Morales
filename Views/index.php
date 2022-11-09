@@ -1,6 +1,6 @@
 <?php require_once 'Views/template/header-principal.php'; ?>
 
-<!-- Anuncios principales -->
+<!-- Slider principales -->
 <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
     <ol class="carousel-indicators">
         <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
@@ -12,14 +12,14 @@
             <div class="container">
                 <div class="row p-5">
                     <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                        <img class="img-fluid" src="<?php echo BASE_URL; ?>assets/img/carrusel/1.jpg" alt="">
+                        <img class="img-fluid" src="<?php echo BASE_URL; ?>assets/img/slider/1.jpg" alt="" width="">
                     </div>
                     <div class="col-lg-6 mb-0 d-flex align-items-center">
                         <div class="text-align-left align-self-center">
-                            <h1 class="h1 text-util"><b>Laptop</b> Core i7</h1>
-                            <h3 class="h2">Lorem ipsum dolor sit amet.</h3>
+                            <h1 class="h1 text-util"><b>Auriculares</b> </h1>
+                            <h3 class="h2">Inalambricos</h3>
                             <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis cum iste beatae itaque impedit dolorem distinctio repudiandae quae harum, molestias officiis numquam optio, corrupti in ea voluptate? Aliquid, recusandae. Quis.</p>
+                                Audifonos inalámbricos de las mejores marcas, escucha con libertad toda tu musica con los audifonos inalámbricos que tiendas Max tiene para ti.</p>
                         </div>
                     </div>
                 </div>
@@ -29,16 +29,14 @@
             <div class="container">
                 <div class="row p-5">
                     <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                        <img class="img-fluid" src="<?php echo BASE_URL; ?>assets/img/carrusel/2.jpg" alt="">
+                        <img class="img-fluid" src="<?php echo BASE_URL; ?>assets/img/slider/2.jpg" alt="" width="">
                     </div>
                     <div class="col-lg-6 mb-0 d-flex align-items-center">
                         <div class="text-align-left">
-                            <h1 class="h1">Proident occaecat</h1>
-                            <h3 class="h2">Aliquip ex ea commodo consequat</h3>
+                            <h1 class="h1">Billeteras</h1>
+                            <h3 class="h2">Para hombres</h3>
                             <p>
-                                You are permitted to use this Zay CSS template for your commercial websites.
-                                You are <strong>not permitted</strong> to re-distribute the template ZIP file in any kind of template
-                                collection websites.
+                                Compra billeteras de alta calidad
                             </p>
                         </div>
                     </div>
@@ -49,16 +47,14 @@
             <div class="container">
                 <div class="row p-5">
                     <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                        <img class="img-fluid" src="<?php echo BASE_URL; ?>assets/img/carrusel/3.png" alt="">
+                        <img class="img-fluid" src="<?php echo BASE_URL; ?>assets/img/slider/3.jpg" alt="" width="">
                     </div>
                     <div class="col-lg-6 mb-0 d-flex align-items-center">
                         <div class="text-align-left">
-                            <h1 class="h1">Repr in voluptate</h1>
-                            <h3 class="h2">Ullamco laboris nisi ut </h3>
+                            <h1 class="h1">Bocinas</h1>
+                            <h3 class="h2">De diferentes marcas</h3>
                             <p>
-                                We bring you 100% free CSS templates for your websites.
-                                If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends
-                                about our website. Thank you.
+                                Compra Bocinas en la Tienda en Línea del Comercio Morales, amplia variedad de productos con garantía a excelentes precios.
                             </p>
                         </div>
                     </div>
@@ -79,15 +75,15 @@
     <div class="row text-center pt-3">
         <div class="col-lg-6 m-auto">
             <h1 class="h1">Categorias</h1>
-            <p>
+            <!-- <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, voluptatibus!
-            </p>
+            </p> -->
         </div>
     </div>
     <div class="row">
         <!-- se almacena en una variable categoria -->
         <?php foreach ($data['categorias'] as $categoria) {  ?>
-            <div class="col-12 col-md-2 p-5 mt-3">
+            <div class="col-12 col-md-4 p-5 mt-3">
                 <!-- "md" = numero de columnas -->
                 <a href="<?php echo BASE_URL . 'principal/categorias/' . $categoria['id']; ?>"><img src="<?php echo $categoria['imagen']; ?>" class="rounded-circle img-fluid border"></a>
                 <h5 class="text-center mt-3 mb-3">
@@ -107,9 +103,9 @@
         <div class="row text-center py-3">
             <div class="col-lg-6 m-auto">
                 <h1 class="h1">Nuevos productos</h1>
-                <p>
+                <!-- <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, adipisci!
-                </p>
+                </p> -->
             </div>
         </div>
         <div class="row">
@@ -125,7 +121,7 @@
                                     <i class="text-warning fa fa-star"></i>
                                     <i class="text-warning fa fa-star"></i>
                                     <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
                                     <i class="text-muted fa fa-star"></i>
                                 </li>
                                 <li class="text-muted text-right"><?php echo MONEDA . ' ' . $producto['precio']; ?></li>

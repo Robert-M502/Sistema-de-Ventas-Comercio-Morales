@@ -119,7 +119,7 @@ function getListaCarrito() {
             let html = ""; /* html se agrega en la constante tablelistas */
             res.productos.forEach((producto) => {
                 html += `<tr>
-                    <td><img class="img-thumbnail rounded-circle" src="${producto.imagen}" alt="" width="100"></td>
+                    <td><img class="img-thumbnail rounded-circle" src="${base_url + producto.imagen}" alt="" width="100"></td>
                     <td>${producto.nombre} </td>
                     <td><span class="badge bg-warning">${res.moneda + " " + producto.precio}</span></td>
                     <td><span class="badge bg-primary">${producto.cantidad}</span></td>

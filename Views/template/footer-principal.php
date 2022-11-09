@@ -2,7 +2,7 @@
 <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
+            <div class="modal-header">
                 <h5 class="modal-title" id=""> <i class="fas fa-cart-arrow-down"></i> Carrito</h5>
                 <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                 </button>
@@ -27,12 +27,12 @@
                     </table>
                 </div>
             </div>
-            <div class="d-flex justify-content-around mb-3">
+            <div class="d-flex justify-content-around mb-4">
                 <h3 id="totalGeneral"></h3>
                 <?php if (!empty($_SESSION['correoCliente'])) { ?>
-                    <a class="btn btn-outline-primary" href="<?php echo BASE_URL . 'clientes' ?>">Procesar pedido</a>
+                    <a class="btn btn-success" href="<?php echo BASE_URL . 'clientes' ?>">Procesar pedido</a>
                 <?php } else { ?>
-                    <a class="btn btn-outline-primary" href="#" onclick="abrirModalLogin();">Login</a> <!-- abrirModalLogin(); en login.js -->
+                    <a class="btn btn-primary" href="#" onclick="abrirModalLogin();">Login</a> <!-- abrirModalLogin(); en login.js -->
                 <?php } ?>
             </div>
         </div>
@@ -43,7 +43,7 @@
 <div id="modalLogin" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
+            <div class="modal-header">
                 <h5 class="modal-title" id="titleLogin">Iniciar sesión</h5>
                 <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                 </button>
@@ -102,7 +102,7 @@
         <div class="row">
 
             <div class="col-md-4 pt-5">
-                <h2 class="h2 text-util border-bottom pb-3 border-light logo">Ubicanos</h2>
+                <h2 class="h2 text-light border-bottom pb-3 border-light logo">Ubicanos</h2>
                 <ul class="list-unstyled text-light footer-link-list">
                     <li>
                         <i class="fas fa-map-marker-alt fa-fw"></i>
@@ -110,11 +110,11 @@
                     </li>
                     <li>
                         <i class="fa fa-phone fa-fw"></i>
-                        <a class="text-decoration-none" href="tel:010-020-0340">+502 5555 5555 </a>
+                        <a class="text-decoration-none" href="#">+502 5555 5555 </a>
                     </li>
                     <li>
                         <i class="fa fa-envelope fa-fw"></i>
-                        <a class="text-decoration-none" href="info@company.com">info@company.com</a>
+                        <a class="text-decoration-none" href="#">info@company.com</a>
                     </li>
                 </ul>
             </div>
@@ -122,24 +122,16 @@
             <div class="col-md-4 pt-5">
                 <h2 class="h2 text-light border-bottom pb-3 border-light">Productos</h2>
                 <ul class="list-unstyled text-light footer-link-list">
-                    <li><a class="text-decoration-none" href="#">Producto-1</a></li>
-                    <li><a class="text-decoration-none" href="#">Producto-2</a></li>
-                    <li><a class="text-decoration-none" href="#">Producto-3</a></li>
-                    <li><a class="text-decoration-none" href="#">Producto-4</a></li>
-                    <li><a class="text-decoration-none" href="#">Producto-5</a></li>
-                    <li><a class="text-decoration-none" href="#">Producto-6</a></li>
-                    <li><a class="text-decoration-none" href="#">Producto-7</a></li>
+                    <li><a class="text-decoration-none" href="#">Fase de beta</a></li>
                 </ul>
             </div>
 
             <div class="col-md-4 pt-5">
                 <h2 class="h2 text-light border-bottom pb-3 border-light">Más información</h2>
                 <ul class="list-unstyled text-light footer-link-list">
-                    <li><a class="text-decoration-none" href="#">Home</a></li>
-                    <li><a class="text-decoration-none" href="#">Sobre nosotros</a></li>
-                    <li><a class="text-decoration-none" href="#">Nuestra ubicación</a></li>
-                    <li><a class="text-decoration-none" href="#">FAQs</a></li>
-                    <li><a class="text-decoration-none" href="#">Contacto</a></li>
+                    <li><a class="text-decoration-none" href="<?php echo BASE_URL ?>">Home</a></li>
+                    <li><a class="text-decoration-none" href="<?php echo BASE_URL . 'principal/about' ?>">Sobre nosotros</a></li>
+                    <li><a class="text-decoration-none" href="<?php echo BASE_URL . 'principal/contact' ?>">Contacto</a></li>
                 </ul>
             </div>
 

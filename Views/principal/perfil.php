@@ -8,10 +8,7 @@
                 <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true"><small>Pago</small></button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pendientes-tab" data-bs-toggle="tab" data-bs-target="#pendientes" type="button" role="tab" aria-controls="pendientes" aria-selected="false"><small>Pendientes</small></button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="completados-tab" data-bs-toggle="tab" data-bs-target="#completados" type="button" role="tab" aria-controls="completados" aria-selected="false"><small>Completados</small></button>
+                <button class="nav-link" id="pendientes-tab" data-bs-toggle="tab" data-bs-target="#pendientes" type="button" role="tab" aria-controls="pendientes" aria-selected="false"><small>Pedidos</small></button>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
@@ -55,7 +52,7 @@
                                 </ul>
                             </div>
                             <div class="card-body text-center">
-                                <img class="img-thumbnail rounded-circle" src="<?php echo  BASE_URL . 'assets/img/logo.png' ?>" alt="" width="150">
+                                <img class="img-thumbnail rounded-circle" src="<?php echo  BASE_URL . 'assets/img/clientes/default.png' ?>" alt="" width="150">
                                 <hr>
                                 <p><?php echo $_SESSION['nombreCliente']; ?></p>
                                 <p><i class="fas fa-envelope"></i> <?php echo $_SESSION['correoCliente']; ?></p>
@@ -113,7 +110,6 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="completados" role="tabpanel" aria-labelledby="completados-tab">...</div>
         </div>
     <?php } else { ?>
         <div class="alert alert-danger text-center" role="alert">
@@ -140,24 +136,26 @@
             </div>
             <div class="modal-body">
                 <div class="row">
+
                     <div class="col-md-6 col-lg-4 pb-5">
-                        <div class="h-100 py-5 services-icon-wap shadow">
-                            <div class="h1 text-util text-center"><i class="fa fa-truck fa-lg"></i></div>
-                            <h2 class="h5 mt-4 text-center">Enviado</h2>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 pb-5">
-                        <div class="h-100 py-5 services-icon-wap shadow">
+                        <div class="h-100 py-5 services-icon-wap shadow" id="estadoEnviado">
                             <div class="h1 text-util text-center"><i class="fa fa-exchange-alt"></i></div>
-                            <h2 class="h5 mt-4 text-center">Proceso</h2>
+                            <h2 class="h5 mt-4 text-center">Pendiente</h2>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 pb-5">
-                        <div class="h-100 py-5 services-icon-wap shadow">
-                            <div class="h1 text-util text-center"><i class="fa fa-percent"></i></div>
-                            <h2 class="h5 mt-4 text-center">Completado</h2>
+                        <div class="h-100 py-5 services-icon-wap shadow" id="estadoProceso">
+                            <div class="h1 text-util text-center"><i class="fa fa-truck fa-lg"></i></div>
+                            <h2 class="h5 mt-4 text-center">En proceso</h2>
                         </div>
                     </div>
+                    <div class="col-md-6 col-lg-4 pb-5">
+                        <div class="h-100 py-5 services-icon-wap shadow" id="estadoCompletado">
+                            <div class="h1 text-util text-center"><i class="fa fa-check"></i></div>
+                            <h2 class="h5 mt-4 text-center">Entregado</h2>
+                        </div>
+                    </div>
+
                     <div class="col-md-12"></div>
                     <div class="table-responsive">
                         <table class="table table-borderer table-striped table-hover align-middle" id="tablePedidos" style="width: 100%;">

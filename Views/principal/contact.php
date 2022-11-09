@@ -1,17 +1,33 @@
-<?php require_once 'Views/template-principal/header.php'; ?>
+<?php require_once 'Views/template/header-principal.php'; ?>
 
 <div class="container-fluid bg-light py-5">
     <div class="col-md-6 m-auto text-center">
         <h1 class="h1">Contáctenos</h1>
-        <p>
-            Proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet.
-        </p>
+    </div>
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-md-9 m-auto">
+                <ul class="list-unstyled ">
+                    <li class="py-2">
+                        <p class="fas fa-map-marker-alt fa-fw"></p>
+                        <a class="text-decoration-none" href="#"> Ubiaciíon: Sector 6, Cantón Chugüexá Segundo "A", Chichicastenango, Quiché</a>
+                    </li>
+                    <li class="py-2">
+                        <i class="fa fa-phone fa-fw"></i>
+                        <a class="text-decoration-none" href="#">Telefono: +502 5555 5555 </a>
+                    </li>
+                    <li class="py-2">
+                        <i class=" fa fa-envelope fa-fw"></i>
+                        <a class="text-decoration-none" href="#">Correo: info@company.com</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 
 <!--  Formulario de contacto -->
-<div class="container py-5">
+<div class="container py-3">
     <div class="row py-5">
         <form class="col-md-9 m-auto" method="post" role="form">
             <div class="row">
@@ -42,4 +58,4 @@
 </div>
 <!-- Cierre del formulario de contacto -->
 
-<?php require_once 'Views/template-principal/footer.php'; ?>
+<?php require_once 'Views/template/footer-principal.php'; ?>

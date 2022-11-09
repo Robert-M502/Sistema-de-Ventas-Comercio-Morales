@@ -47,22 +47,22 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow">
+    <nav class="navbar navbar-expand-lg shadow navbar-light bg-yellow">
         <div class="container d-flex justify-content-between align-items-center">
             <a class="navbar-brand text-util logo h3" href="<?php echo BASE_URL; ?>">
                 <?php echo TITLE; ?>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon icon-white"></span>
             </button>
             <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo BASE_URL . 'principal/about' ?>">Sobre nosotros</a>
+                            <a class="nav-link" href="<?php echo BASE_URL . 'principal/shop' ?>">Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo BASE_URL . 'principal/shop' ?>">Productos</a>
+                            <a class="nav-link" href="<?php echo BASE_URL . 'principal/about' ?>">Sobre nosotros</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo BASE_URL . 'principal/contact' ?>">Contáctenos</a>
@@ -85,17 +85,17 @@
                     <a class="nav-icon position-relative text-decoration-none <?php echo ($data['perfil'] == 'no') ? '' : 'd-none'; ?>" href="#" id="verCarrito">
                         <!-- verCarrito - > carrito.js -->
                         <i class="fas fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-util text-util text-white" id="btnCantidadCarrito">0</span>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-util text-red" id="btnCantidadCarrito">0</span>
                     </a>
                     <a class="nav-icon position-relative text-decoration-none <?php echo ($data['perfil'] == 'no') ? '' : 'd-none'; ?>" href="<?php echo BASE_URL . 'principal/deseo/' ?>">
                         <i class="fas fa-fw fa-heart text-dark mr-1"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-util text-util text-white" id="btnCantidadDeseo">0</span>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-util text-red" id="btnCantidadDeseo">0</span>
                         <!--btnCantidadDeseo = listaDeseo.js -->
                     </a>
                     <?php if (!empty($_SESSION['correoCliente'])) { ?>
                         <a class="nav-icon position-relative text-decoration-none" href="<?php echo BASE_URL . 'clientes'; ?>">
                             <!-- btnModalLogin -> login.js -->
-                            <img class="img-thumbnail" src="<?php echo BASE_URL . 'assets/img/clientes/default.png'; ?>" alt="-LOG0-CLIENTE" width="35">
+                            <img class="" src="<?php echo BASE_URL . 'assets/img/clientes/default.png'; ?>" alt="-LOG0-CLIENTE" width="32">
                         </a>
                     <?php } else { ?>
                         <a class="nav-icon position-relative text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#modalLogin">

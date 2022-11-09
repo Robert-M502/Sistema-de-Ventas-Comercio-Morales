@@ -27,6 +27,7 @@ div {
     font-family: "Roboto", sans-serif;
     font-size: 22px !important;
 }
+
 /* General */
 .logo {
     font-weight: 500 !important;
@@ -41,14 +42,26 @@ div {
     color: #59ab6e !important;
 }
 .text-util {
-    color: #ff9900 !important;
+    color: black !important;
 }
 .text-light {
     color: #cfd6e1 !important;
 }
+.text-red {
+    color: #e1251b;
+}
 .bg-dark {
     background-color: #212934 !important;
 }
+
+.bg-red {
+    background-color: #e1251b;
+}
+
+.bg-yellow {
+    background-color: #fff14a;
+}
+
 .bg-light {
     background-color: #e9eef5 !important;
 }
@@ -62,26 +75,28 @@ div {
     background-color: #e9eef5 !important;
 }
 .btn-success {
-    background-color: #ff9900 !important;
-    border-color: #ff9900 !important;
+    /*  background-color: #ff9900 !important;
+    border-color: #ff9900 !important; */
 }
 .btn-util {
-    background-color: #ff9900 !important;
-    color: #ffffff !important;
+    background-color: #fff14a !important;
+    color: black !important;
     cursor: pointer;
     outline: none;
 }
 .btn-util:hover {
     background-color: #ff003c !important;
+    color: white !important;
 }
 .pagination .page-link:hover {
     color: #000;
 }
 .pagination .page-link:hover,
 .pagination .page-link.active {
-    background-color: #ff9900;
-    color: #fff;
+    background-color: #fff14a;
+    color: black;
 }
+
 /* Nav */
 #templatemo_nav_top {
     min-height: 40px;
@@ -93,7 +108,7 @@ div {
     color: #212934;
 }
 #templatemo_main_nav a:hover {
-    color: #ffb74b;
+    color: white;
 }
 #templatemo_main_nav .navbar .nav-icon {
     margin-right: 20px;
@@ -181,14 +196,10 @@ div {
 /* Services */
 .services-icon-wap {
     transition: 0.3s;
+    background: #fff14a;
+    color: black;
 }
-.services-icon-wap:hover,
-.services-icon-wap:hover i {
-    color: #fff;
-}
-.services-icon-wap:hover {
-    background: #7f8a9e;
-}
+
 /* Contact map */
 .leaflet-control a,
 .leaflet-control {

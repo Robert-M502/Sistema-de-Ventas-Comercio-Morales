@@ -120,7 +120,7 @@ class Clientes extends Controller
                     if (password_verify($clave, $verificar['clave'])) { /* ['clave'] = campo de la db*/
                         $_SESSION['correoCliente'] = $verificar['correo']; /* ['correo'] = campo correo de la db */
                         $_SESSION['nombreCliente'] = $verificar['nombre']; /* ['nombre'] = compo nombre del db */
-                        $mensaje = array('msg' => 'ok', 'icono' => 'success');
+                        $mensaje = array('msg' => 'Datos correctos', 'icono' => 'success');
                     } else {
                         $mensaje = array('msg' => 'Contraseña incorrecta', 'icono' => 'error');
                     }
@@ -175,7 +175,7 @@ class Clientes extends Controller
     /* Listra productos pendientes */
     public function listarPendientes()
     {
-        $data = $this->model->getPedidos(1); /* Esta pendiente va ser un 1 */
+        $data = $this->model->getPedidos(); /* Esta pendiente va ser un 1 */
         for ($i = 0; $i < count($data); $i++) {
             $data[$i]['accion'] = '<div class="text-center"><button class="btn btn-primary" type="button" onclick="verPedido(' . $data[$i]['id'] . ')"><i class="fas fa-eye"></i></button></div>'; /* En cada indice se crea un botono */
         }
@@ -185,7 +185,8 @@ class Clientes extends Controller
 
     public function verPedido($idPedido) /* Requerido en cliente.js/verPedido */
     {
-        $data['productos'] = $this->model->verPedido($idPedido);
+        $data['pedido'] = $this->model->getPedido($idPedido);
+        $data['productos'] = $this->model->verPedidos($idPedido);
         $data['moneda'] = MONEDA;
         echo json_encode($data);
         die();

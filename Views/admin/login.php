@@ -40,7 +40,7 @@
                                         <div class="col-12">
                                             <label for="email" class="form-label">Usuario</label>
                                             <div class="input-group has-validation">
-                                                <input type="email" name="email" class="form-control" id="email" value="rsebastianm1999@gmail.com" required>
+                                                <input type="email" name="email" class="form-control" id="email" value="admin@gmail.com" required>
                                                 <div class="invalid-feedback">Por favor, introduzca el correo electrónico.</div>
                                             </div>
                                         </div>

@@ -20,8 +20,8 @@ class Pedidos extends Controller
         $data = $this->model->getPedidos(1); /* 1 pendiente  */
         for ($i = 0; $i < count($data); $i++) {
             $data[$i]['accion'] = ' <div class="d-flex">
-                <button type="button" class="btn btn-info" onclick="cambiarProceso(' . $data[$i]['id'] . ', 2)"><i class="fas fa-check-circle"></i></button> &nbsp 
-                <button type="button" class="btn btn-success" onclick="verPedido(' . $data[$i]['id'] . ')"><i class="fas fa-eye"></i></button>
+                <button type="button" class="btn btn-primary " onclick="verPedido(' . $data[$i]['id'] . ')"><i class="fas fa-eye"></i></button> &nbsp
+                <button type="button" class="btn btn-success" onclick="cambiarProceso(' . $data[$i]['id'] . ', 2)"><i class="fas fa-check-circle"></i></button>  
                 </div>';
         }
         echo json_encode($data);
@@ -34,8 +34,8 @@ class Pedidos extends Controller
         $data = $this->model->getPedidos(2); /* 2 en proceso */
         for ($i = 0; $i < count($data); $i++) {
             $data[$i]['accion'] = ' <div class="d-flex">
-                <button type="button" class="btn btn-info" onclick="cambiarProceso(' . $data[$i]['id'] . ', 3)"><i class="fas fa-check-circle"></i></button> &nbsp 
-                <button type="button" class="btn btn-success" onclick="verPedido(' . $data[$i]['id'] . ')"><i class="fas fa-eye"></i></button>
+                <button type="button" class="btn btn-primary " onclick="verPedido(' . $data[$i]['id'] . ')"><i class="fas fa-eye"></i></button> &nbsp
+                <button type="button" class="btn btn-success" onclick="cambiarProceso(' . $data[$i]['id'] . ', 3)"><i class="fas fa-check-circle"></i></button>  
                 </div>';
         }
         echo json_encode($data);

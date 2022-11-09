@@ -1,4 +1,4 @@
-<?php require_once 'Views/template-principal/header.php'; ?>
+<?php require_once 'Views/template/header-principal.php'; ?>
 
 <section class="bg-util py-5">
     <div class="container">
@@ -6,9 +6,7 @@
             <div class="col-md-8 text-dark">
                 <h1>Sobre nosotros</h1>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Somos una empresa comercial dedicada a la producción y comercialización de productos de buena calidad con el fin de satisfacer las necesidades de la comunidad de ventas.
                 </p>
             </div>
             <div class="col-md-4">
@@ -24,8 +22,7 @@
         <div class="col-lg-6 m-auto">
             <h1 class="h1">Nuestros servicios</h1>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                Lorem ipsum dolor sit amet.
+
             </p>
         </div>
     </div>
@@ -39,7 +36,7 @@
         <div class="col-md-6 col-lg-3 pb-5">
             <div class="h-100 py-5 services-icon-wap shadow">
                 <div class="h1 text-util text-center"><i class="fa fa-exchange-alt"></i></div>
-                <h2 class="h5 mt-4 text-center">Envío y devolución</h2>
+                <h2 class="h5 mt-4 text-center">Devoluciones</h2>
             </div>
         </div>
         <div class="col-md-6 col-lg-3 pb-5">
@@ -58,4 +55,4 @@
     </div>
 </section>
 
-<?php require_once 'Views/template-principal/footer.php'; ?>
+<?php require_once 'Views/template/footer-principal.php'; ?>

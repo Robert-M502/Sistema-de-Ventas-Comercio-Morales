@@ -17,17 +17,13 @@ function getListaDeseo() {
             let html = ""; /* html se agrega en la constante tablelistas */
             res.productos.forEach((producto) => {
                 html += `<tr>
-                    <td><img class="img-thumbnail rounded-circle" src="${producto.imagen}" alt="" width="100"></td>
+                    <td><img class="img-thumbnail rounded-circle" src="${base_url + producto.imagen}" alt="" width="100"></td>
                     <td>${producto.nombre}</td>
                     <td><span class="badge bg-warning">${res.moneda + " " + producto.precio}</span></td>
                     <td><span class="badge bg-primary">${producto.cantidad}</span></td>
                     <td>
-                        <button class="btn btn-danger btnEliminarDeseo" type="button" prod="${
-                            producto.id
-                        }"><i class="fas fa-trash"> </i></button>
-                        <button class="btn btn-primary btnAddCart" type="button" prod="${
-                            producto.id
-                        }"><i class="fas fa-cart-plus"> </i></button>
+                        <button class="btn btn-danger btnEliminarDeseo" type="button" prod="${producto.id}"><i class="fas fa-trash"> </i></button>
+                        <button class="btn btn-primary btnAddCart" type="button" prod="${producto.id}"><i class="fas fa-cart-plus"> </i></button>
                     </td>   
                 </tr>`;
             });
@@ -56,10 +52,7 @@ function eliminarListaDeseo(idProducto) {
             listaDeseo.splice(i, 1);
         }
     }
-    localStorage.setItem(
-        "listaDeseo",
-        JSON.stringify(listaDeseo)
-    ); /* Quita en el localStorage los productos eliminaods en la lista de deseos  */
+    localStorage.setItem("listaDeseo", JSON.stringify(listaDeseo)); /* Quita en el localStorage los productos eliminaods en la lista de deseos  */
     getListaDeseo(); /* Actualizar la table  */
     cantidadDeseo(); /* Actualiza la cantidad de producto cuando se elimina uno o más */
     Swal.fire("Aviso", "PRODUCTO ELIMINADO DE LA LISTA DE DESEO", "success"); //Alerta

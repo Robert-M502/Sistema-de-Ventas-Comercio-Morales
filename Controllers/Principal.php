@@ -30,7 +30,7 @@ class Principal extends Controller
         $this->views->getView('principal', "shop", $data);
     }
 
-    //Vista datail (Deatalles de los productos)
+    //Vista datail (Detalles de los productos)
     public function detail($id_producto)
     {
         $data['perfil'] = 'no';

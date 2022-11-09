@@ -24,3 +24,5 @@
 </script>
 <script type="text/javascript" src="<?php echo BASE_URL . 'assets/DataTables/datatables.min.js'; ?>"></script>
 <script src="<?php echo BASE_URL; ?>assets/js/es-ES.js"></script>
+
+<script src="<?php echo BASE_URL; ?>assets/js/index.js"></script>
