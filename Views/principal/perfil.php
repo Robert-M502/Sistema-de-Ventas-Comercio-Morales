@@ -73,11 +73,30 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingTwo">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Otros métodos de pago
+                                            Pagar cuando se recibe los productos
                                         </button>
                                     </h2>
                                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
+                                            <div class="mb-3">
+                                                <input type="email" class="form-control" id="" placeholder="Nombres" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <input type="email" class="form-control" id="" placeholder="Apellidos" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <input type="email" class="form-control" id="" placeholder="Dirección" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <input type="email" class="form-control" id="" placeholder="Ciudad">
+                                            </div>
+                                            <div class="mb-3">
+                                                <input type="email" class="form-control" id="" placeholder="Correo electronico" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <input type="email" class="form-control" id="" placeholder="Telefono" required>
+                                            </div>
+                                            <button type="button" class="btn btn-primary">Realizar pedido</button>
                                         </div>
                                     </div>
                                 </div>
@@ -124,6 +143,7 @@
     <?php } ?>
 </div>
 
+<!-- Pedidos -->
 <div id="modalPedido" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
     <!-- modalPedido/clientes.js -->
     <div class="modal-dialog modal-lg" role="document">

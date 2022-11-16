@@ -10,7 +10,7 @@
                 <ul class="list-unstyled ">
                     <li class="py-2">
                         <p class="fas fa-map-marker-alt fa-fw"></p>
-                        <a class="text-decoration-none" href="#"> Ubiaciíon: Sector 6, Cantón Chugüexá Segundo "A", Chichicastenango, Quiché</a>
+                        <a class="text-decoration-none" href="#"> Nuestra ubiacíon: Sector 6, Cantón Chugüexá Segundo "A", Chichicastenango, Quiché</a>
                     </li>
                     <li class="py-2">
                         <i class="fa fa-phone fa-fw"></i>

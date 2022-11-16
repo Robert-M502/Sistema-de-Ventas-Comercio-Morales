@@ -40,6 +40,7 @@
                                         <th>Nombre</th>
                                         <th>Apellido</th>
                                         <th>Dirección</th>
+                                        <th>Ciudad</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -68,6 +69,7 @@
                                         <th>Nombre</th>
                                         <th>Apellido</th>
                                         <th>Dirección</th>
+                                        <th>Ciudad</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -96,6 +98,7 @@
                                         <th>Nombre</th>
                                         <th>Apellido</th>
                                         <th>Dirección</th>
+                                        <th>Ciudad</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -123,12 +126,12 @@
             <div class="modal-body">
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover" id="tablePedidos" style="width: 100%;">
-                        <!-- clientes.js/tblPendientes -->
+                        <!-- clientes.js/tablePedidos -->
                         <thead class="bg-dark text-white">
                             <tr>
-                                <th>#</th>
+                                <th>Nombre</th>
                                 <th>Monto</th>
-                                <th>Fecha</th>
+                                <th>Cantidad</th>
                                 <th></th>
                             </tr>
                         </thead>

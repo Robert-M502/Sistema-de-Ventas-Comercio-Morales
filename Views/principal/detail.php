@@ -42,9 +42,9 @@
                                 </div>
                             </div>
                             <div class="row pb-3">
-                                <div class="col d-grid">
+                                <!--  <div class="col d-grid">
                                     <button type="submit" class="btn bg-red text-white btn-lg" name="submit" value="buy">Comprar</button>
-                                </div>
+                                </div> -->
                                 <div class="col d-grid">
                                     <button type="button" class="btn bg-red text-white btn-lg " id="btnAddCart">Añadir al carrito</button>
                                 </div>
